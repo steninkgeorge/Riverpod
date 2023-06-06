@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // restart instead.
         //
         // This works for code too, not just values: Most code changes can be
-        //blabkavka
+        //
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
