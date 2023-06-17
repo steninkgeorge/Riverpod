@@ -6,10 +6,10 @@ void main() {
   runApp(ProviderScope(child: MyApp()));
 }
 
+final nameprovider = Provider((ref) => 'stenin');
+
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-
-  var nameprovider = Provider((ref) => null);
 
   // This widget is the root of your application.
   @override
