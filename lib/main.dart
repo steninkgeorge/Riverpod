@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_/enum.dart';
+import 'package:riverpod_/theme.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -19,9 +21,7 @@ class MyApp extends ConsumerWidget {
     final iconProvider = ref.watch(iconProvdier);
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: iconProvider == Icons.wb_sunny
-            ? ThemeData.light()
-            : ThemeData.dark(),
+        theme: iconProvider == Icons.wb_sunny ? ThemeData.light() : darkTheme,
         home: Scaffold(
           body: Center(
             child: Consumer(builder: (context, ref, child) {
