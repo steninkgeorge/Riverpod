@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_/enum.dart';
 import 'package:riverpod_/riverpod.dart';
-import 'package:riverpod_/theme.dart';
 import 'package:riverpod_/user.dart';
 
 void main() {
