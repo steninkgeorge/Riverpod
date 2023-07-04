@@ -55,6 +55,9 @@ class User {
   int get hashCode => name.hashCode ^ age.hashCode;
 }
 
+//the state is immutable outside this class
+//the value of the state can only be changed inside this class
+
 class UserNotifier extends StateNotifier<User> {
   UserNotifier(super.state);
 
