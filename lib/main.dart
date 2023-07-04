@@ -15,8 +15,8 @@ final nameProvider = StateProvider<String?>((ref) => null);
 //one is usernotifier which is the class which is returned
 //second is the datatype user which is the state of the class we have returned
 
-final userProvider = StateNotifierProvider<UserNotifier, User>(
-    (ref) => UserNotifier(User(name: '', age: 0)));
+final userProvider =
+    StateNotifierProvider<UserNotifier, User>((ref) => UserNotifier());
 
 class MyApp extends ConsumerWidget {
   MyApp({super.key});

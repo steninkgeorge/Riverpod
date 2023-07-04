@@ -59,7 +59,7 @@ class User {
 //the value of the state can only be changed inside this class
 
 class UserNotifier extends StateNotifier<User> {
-  UserNotifier(super.state);
+  UserNotifier() : super(User(name: 'Type Something', age: 0));
 
   void updateName(String n) {
     state = state.copyWith(name: n);
