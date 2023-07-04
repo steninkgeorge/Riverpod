@@ -62,7 +62,7 @@ class UserNotifier extends StateNotifier<User> {
     state = state.copyWith(name: n);
   }
 
-  void updateAge(int n) {
-    state = state.copyWith(age: n);
+  void updateAge(int a) {
+    state = state.copyWith(age: a);
   }
 }
