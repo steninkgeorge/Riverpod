@@ -3,12 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_/enum.dart';
 import 'package:riverpod_/riverpod.dart';
 import 'package:riverpod_/theme.dart';
+import 'package:riverpod_/user.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
 }
 
 final nameProvider = StateProvider<String?>((ref) => null);
+
+//inside statenotifierprovider two datatypes are mentioned
+//one is usernotifier which is the class which is returned
+//second is the datatype user which is the state of the class we have returned
+
+final userProvider = StateNotifierProvider<UserNotifier, User>(
+    (ref) => UserNotifier(User(name: '', age: 0)));
 
 class MyApp extends ConsumerWidget {
   MyApp({super.key});
