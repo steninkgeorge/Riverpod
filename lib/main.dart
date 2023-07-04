@@ -32,40 +32,6 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: iconProvider == Icons.wb_sunny ? ThemeData.light() : darkTheme,
-        home: SafeArea(
-          child: Scaffold(
-            body: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Consumer(builder: (context, ref, child) {
-                      final iconData = ref.watch(iconProvdier);
-
-                      return IconButton(
-                        icon: Icon(iconData),
-                        onPressed: () {
-                          ref.read(iconProvdier.notifier).state =
-                              iconData == Icons.wb_sunny
-                                  ? Icons.nightlight_outlined
-                                  : Icons.wb_sunny;
-                        },
-                      );
-                    }),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Text(ref.watch(counterController).state.toString()),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    ElevatedButton(
-                        onPressed: () {
-                          ref.read(counterController).add();
-                        },
-                        child: const Text("add"))
-                  ]),
-            ),
-          ),
-        ));
+        home: Scaffold());
   }
 }
