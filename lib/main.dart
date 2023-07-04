@@ -8,7 +8,7 @@ void main() {
   runApp(ProviderScope(child: MyApp()));
 }
 
-final nameProvider = Provider((ref) => 'stenin');
+final nameProvider = StateProvider<String?>((ref) => null);
 
 class MyApp extends ConsumerWidget {
   MyApp({super.key});
