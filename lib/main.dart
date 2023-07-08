@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_/riverpod.dart';
+import 'package:riverpod_/counter.dart';
 import 'package:riverpod_/user.dart';
 
 void main() {
@@ -8,6 +8,8 @@ void main() {
 }
 
 final nameProvider = StateProvider<String?>((ref) => null);
+
+final numberProvider = StateProvider<int>((ref) => 0);
 
 //inside statenotifierprovider two datatypes are mentioned
 //one is usernotifier which is the class which is returned
@@ -22,6 +24,6 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(title: 'Flutter Demo', home: homepage());
+    return MaterialApp(title: 'Flutter Demo', home: counter());
   }
 }
