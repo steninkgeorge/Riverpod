@@ -15,11 +15,17 @@ class counter extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       int num = ref.watch(numberProvider);
       return Scaffold(
-        appBar: AppBar(
-          title: Text("riverpod"),
-        ),
-        body: Column(children: [Text(num.toString())]),
-      );
+          appBar: AppBar(
+            title: Text("riverpod"),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              num = num + 1;
+              add(ref, num);
+            },
+            child: Icon(Icons.home),
+          ),
+          body: Center(child: Text(num.toString())));
     });
   }
 }
