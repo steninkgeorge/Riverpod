@@ -13,8 +13,13 @@ final nameProvider = StateProvider<String?>((ref) => null);
 
 final numberProvider = StateProvider<int>((ref) => 0);
 
-final fetchUserProvider = FutureProvider((ref) {
-  return userRepository().fetchUserData();
+final fetchUserProvider = FutureProvider.family((ref, String input) {
+  final userRepository = ref.watch(userRepositoryprovider);
+  return userRepository.fetchUserData(input);
+});
+
+final streamProvider = StreamProvider((ref) async* {
+  yield [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 });
 
 //inside statenotifierprovider two datatypes are mentioned
@@ -30,6 +35,6 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(title: 'Flutter Demo', home: futureSampleProvider());
+    return MaterialApp(title: 'Flutter Demo', home: futuresampleprovider());
   }
 }

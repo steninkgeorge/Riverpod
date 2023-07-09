@@ -70,9 +70,11 @@ class User {
 //     state = state.copyWith(age: a);
 //   }
 
+final userRepositoryprovider = Provider((ref) => userRepository());
+
 class userRepository {
-  Future<User> fetchUserData() {
-    const url = "https://jsonplaceholder.typicode.com/users/1";
+  Future<User> fetchUserData(String input) {
+    var url = "https://jsonplaceholder.typicode.com/users/$input";
     return http.get(Uri.parse(url)).then((value) => User.fromJson(value.body));
   }
 }
