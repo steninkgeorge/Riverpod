@@ -2,14 +2,15 @@
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
 
 class User {
   final String name;
-  final int age;
+  final String email;
 
   User({
     required this.name,
-    required this.age,
+    required this.email,
   });
 
   User copyWith({
@@ -18,21 +19,21 @@ class User {
   }) {
     return User(
       name: name ?? this.name,
-      age: age ?? this.age,
+      email: email ?? this.email,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
-      'age': age,
+      'email': email,
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
       name: map['name'] as String,
-      age: map['age'] as int,
+      email: map['email'] as String,
     );
   }
 
@@ -42,30 +43,36 @@ class User {
       User.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'User(name: $name, age: $age)';
+  String toString() => 'User(name: $name, age: $email)';
 
   @override
   bool operator ==(covariant User other) {
     if (identical(this, other)) return true;
 
-    return other.name == name && other.age == age;
+    return other.name == name && other.email == email;
   }
 
   @override
-  int get hashCode => name.hashCode ^ age.hashCode;
+  int get hashCode => name.hashCode ^ email.hashCode;
 }
 
 //the state is immutable outside this class
 //the value of the state can only be changed inside this class
 
-class UserNotifier extends StateNotifier<User> {
-  UserNotifier() : super(User(name: 'Type Something', age: 0));
+// class UserNotifier extends StateNotifier<User> {
+//   UserNotifier() : super(User(name: 'Type Something', age: 0));
 
-  void updateName(String n) {
-    state = state.copyWith(name: n);
-  }
+//   void updateName(String n) {
+//     state = state.copyWith(name: n);
+//   }
 
-  void updateAge(int a) {
-    state = state.copyWith(age: a);
+//   void updateAge(int a) {
+//     state = state.copyWith(age: a);
+//   }
+
+class userRepository {
+  Future<User> fetchUserData() {
+    const url = "https://jsonplaceholder.typicode.com/users/1";
+    return http.get(Uri.parse(url)).then((value) => User.fromJson(value.body));
   }
 }
